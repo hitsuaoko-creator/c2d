@@ -1,0 +1,4 @@
+interface:
+  display_name: "输入法APP设计规范"
+  short_description: "按输入法APP设计规范和MasterGo组件库生成高保真界面"
+  default_prompt: "使用输入法APP设计规范，根据交互截图和MasterGo组件库生成界面。"
