@@ -1,16 +1,16 @@
 ---
 name: c2d
-description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, visual-insight output summarization, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, design, or c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar; when the user says only "设计", "c2d", "使用 c2d", "$c2d", "/c2d", "输入法APP设计规范", or invokes this skill with no extra content; when they provide/mention visual skill output, visual-insight output, MasterGo component library link https://mastergo.iflytek.com/goto/TOAnEBPS, or the 输入法APP 设计规范引导 repository. Backward-compatible aliases include "input-method-app-design" and "$input-method-app-design".
+description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, visual-insight output summarization, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, design, or c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar; when the user says only "设计", "c2d", "使用 c2d", "$c2d", "/c2d", "输入法APP设计规范", or invokes this skill with no extra content; when they provide/mention visual skill output, visual-insight output, MasterGo component library link https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578, or the 输入法APP 设计规范引导 repository. Backward-compatible aliases include "input-method-app-design" and "$input-method-app-design".
 ---
 
 # 输入法APP 设计规范
 
-This skill is the trigger and execution workflow for the bundled `输入法APP 设计规范引导` rules. The canonical rules live inside this skill at `rules/`. The default component source is the MasterGo design elements and component library at `https://mastergo.iflytek.com/goto/TOAnEBPS`.
+This skill is the trigger and execution workflow for the bundled `输入法APP 设计规范引导` rules. The canonical rules live inside this skill at `rules/`. The default component source is the MasterGo design elements and component library at `https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578`.
 
 ## Mandatory Workflow
 
 1. Guide requirement intake when the request is incomplete:
-   - Read `rules/需求引导.md`.
+   - Read `rules/01-需求引导.md`.
    - Give the user a concise fill-in template when they ask how to use the skill or provide only a vague goal.
    - Ask at most 3 blocking questions before generation; otherwise make safe assumptions and state them.
 2. Load MasterGo generation rules first:
@@ -20,19 +20,17 @@ This skill is the trigger and execution workflow for the bundled `输入法APP �
    - Produce a short `交互截图解读`: page count, page titles, visible text, click path, states, popups, keyboard/tabbar presence.
    - If text is unreadable, zoom/crop or ask for a clearer screenshot before generating.
 4. Analyze visual-insight output when provided:
-   - Read `rules/视觉产物解读规则.md`.
+   - Read `rules/05-视觉产物解读规则.md`.
    - Summarize the visual output into `本次视觉生成概要`: visual goal, key path, information hierarchy, primary CTA, state coverage, risks, and executable design actions.
    - Treat the summary as generation guidance, not as permission to violate component, layout, or canvas rules.
 5. Read this skill's rules before generating:
-   - Always read `rules/README.md` as the rules index.
-   - For design generation, read `rules/03-D2C调用准则.md`, `rules/02-组件组合规则.md`, and `rules/06-画布结构与图层治理.md`.
-   - For component mapping or conflicts, read the matching `rules/*.md` file.
-   - Always read `rules/硬规则.md`.
-   - Read `rules/组件调用.md` before selecting components.
-   - Read `rules/画布结构.md` before writing MasterGo HTML.
+   - Always read `rules/00-规则索引.md` as the rules index.
+   - For design generation, read `rules/02-组件使用规则.md`, `rules/03-画布与图层规则.md`, and `rules/04-缺失冲突与校验规则.md`.
+   - For exact component names, props, slots, icons, or variables, read `rules/06-组件与变量清单.md`.
+   - For color or variable decisions, read `rules/07-变量与颜色规则.md`.
 6. Read the MasterGo component library before composing UI:
    - Use `get_component_info({ projectDir, teamLibraryName: "当前文件" })` when the component library is opened/current in MasterGo.
-   - If the library is not the current file/page, ask the user to open `https://mastergo.iflytek.com/goto/TOAnEBPS` or use the available team-library flow.
+   - If the library is not the current file/page, ask the user to open `https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578` or use the available team-library flow.
    - Then read the local snapshot in `.mastergo/library/...`: `index.md`, relevant `components/*.json`, `icons.json`, and `variable.json`.
 7. Build a component shortlist before drawing:
    - Map each screenshot region to candidate library components.
@@ -53,10 +51,10 @@ This skill is the trigger and execution workflow for the bundled `输入法APP �
 
 ## Intake Guidance
 
-When the user asks "怎么用这个 skill", "我该输入什么", "帮我封装一个提问模板", or provides a vague request, read `rules/需求引导.md` and respond with a short guided template. Prefer collecting:
+When the user asks "怎么用这个 skill", "我该输入什么", "帮我封装一个提问模板", or provides a vague request, read `rules/01-需求引导.md` and respond with a short guided template. Prefer collecting:
 
 - Target MasterGo canvas URL.
-- Component library URL, defaulting to `https://mastergo.iflytek.com/goto/TOAnEBPS`.
+- Component library URL, defaulting to `https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578`.
 - Uploaded interaction screenshot(s).
 - Visual-insight output or visual skill artifact, if available.
 - Task type: generate, optimize, or audit.
@@ -69,7 +67,7 @@ If one of target canvas, screenshot, or component library access is missing, ask
 
 If the request is empty after slash-invoking this skill, or only says `设计`, `c2d`, `使用 c2d`, `$c2d`, `/c2d`, `输入法APP设计规范`, or the backward-compatible alias `input-method-app-design`, immediately start the guided intake instead of waiting for a full prompt:
 
-- Read `rules/需求引导.md`.
+- Read `rules/01-需求引导.md`.
 - Reply with the minimal template and ask only for the missing blockers.
 - Ask at most 4 questions, prioritizing target MasterGo canvas, uploaded interaction screenshot, component library confirmation, and whether visual-insight output exists.
 - Do not generate UI until the required target canvas and screenshot are available.
@@ -97,7 +95,7 @@ Use this order:
 
 1. Exact semantic match in component library.
 2. Similar visual structure and interaction logic.
-3. Same parent-child pattern from `rules/组件调用.md`.
+3. Same parent-child pattern from `rules/02-组件使用规则.md`.
 4. Temporary frame only when no suitable component exists, and name it `临时容器-用途`.
 5. Ask before replacing a core component, keyboard, nav, tabbar, or business card with a temporary frame.
 

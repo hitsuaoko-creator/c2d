@@ -4,15 +4,14 @@
 
 先读取：
 
-1. `rules/需求引导.md`
-2. `rules/README.md`
-3. `rules/硬规则.md`
-4. `rules/组件调用.md`
-5. `rules/画布结构.md`
-6. `rules/视觉产物解读规则.md`
-7. `rules/02-组件组合规则.md`
-8. `rules/03-D2C调用准则.md`
-9. `rules/06-画布结构与图层治理.md`
+1. `rules/01-需求引导.md`
+2. `rules/00-规则索引.md`
+3. `rules/02-组件使用规则.md`
+4. `rules/03-画布与图层规则.md`
+5. `rules/04-缺失冲突与校验规则.md`
+6. `rules/05-视觉产物解读规则.md`，如提供 visual 产物
+7. `rules/06-组件与变量清单.md`，仅在确认组件名、props、slots、变量名时读取
+8. `rules/07-变量与颜色规则.md`，仅在处理颜色或变量时读取
 
 输入材料：
 
@@ -21,7 +20,7 @@
 【粘贴链接】
 
 组件库：
-https://mastergo.iflytek.com/goto/TOAnEBPS
+https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578
 
 交互截图：
 【上传截图或粘贴路径】

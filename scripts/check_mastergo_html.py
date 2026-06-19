@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pre-submit checks for input-method-app MasterGo HTML."""
+"""Pre-submit checks for c2d MasterGo HTML."""
 
 from __future__ import annotations
 
@@ -14,6 +14,10 @@ FORBIDDEN_COMPONENTS = {
     "1:1 图片素材",
     "3 纵列图片素材",
     "placeholder_pic",
+    "卡片_封面",
+    "卡片_内容区",
+    "图标卡片组件-图标",
+    "withicon",
 }
 
 REQUIRED_COMPONENTS_WHEN_PRESENT = {

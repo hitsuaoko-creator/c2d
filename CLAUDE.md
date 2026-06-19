@@ -8,18 +8,14 @@ When the user invokes `/c2d`, says `c2d`, says `设计`, or asks for an input-me
 
 Read these files before generating UI:
 
-1. `rules/需求引导.md`
-2. `rules/README.md`
-3. `rules/硬规则.md`
-4. `rules/组件调用.md`
-5. `rules/画布结构.md`
-6. `rules/视觉产物解读规则.md` if visual-insight output is provided
+1. `rules/01-需求引导.md`
+2. `rules/00-规则索引.md`
+3. `rules/02-组件使用规则.md`
+4. `rules/03-画布与图层规则.md`
+5. `rules/04-缺失冲突与校验规则.md`
+6. `rules/05-视觉产物解读规则.md` if visual-insight output is provided
 
-For generation, also read:
-
-7. `rules/02-组件组合规则.md`
-8. `rules/03-D2C调用准则.md`
-9. `rules/06-画布结构与图层治理.md`
+Read `rules/06-组件与变量清单.md` only when exact component names, props, slots, icons, or variables are needed. Read `rules/07-变量与颜色规则.md` when color or variable decisions are involved.
 
 ## Claude Code Behavior
 
