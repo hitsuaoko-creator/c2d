@@ -18,7 +18,7 @@ Read these files before generating UI:
 For generation, also read:
 
 7. `rules/02-组件组合规则.md`
-8. `rules/03-c2d调用准则.md`
+8. `rules/03-D2C调用准则.md`
 9. `rules/06-画布结构与图层治理.md`
 
 ## Claude Code Behavior

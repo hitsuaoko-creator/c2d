@@ -11,7 +11,7 @@
 5. `rules/画布结构.md`
 6. `rules/视觉产物解读规则.md`
 7. `rules/02-组件组合规则.md`
-8. `rules/03-c2d调用准则.md`
+8. `rules/03-D2C调用准则.md`
 9. `rules/06-画布结构与图层治理.md`
 
 输入材料：
