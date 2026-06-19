@@ -1,51 +1,63 @@
 # c2d
 
-`c2d` is a Codex skill for generating and reviewing MasterGo mobile UI designs for the iFlytek input-method app.
+`c2d` is a cross-agent skill for generating and reviewing high-fidelity MasterGo mobile UI designs for the iFlytek input-method app.
 
-The skill bundles the `输入法APP 设计规范引导` rules and enforces a workflow that reads interaction screenshots, maps UI regions to the MasterGo component library, and checks generated MasterGo HTML before submission.
+It reads interaction screenshots, visual-insight output, the MasterGo component library, and the bundled `输入法APP 设计规范引导` rules before generating UI. The goal is not to copy screenshots blindly, but to turn design intent into maintainable MasterGo component-based screens.
 
 中文说明见 [`README.zh-CN.md`](./README.zh-CN.md).
 
-## Skill
+## Structure
 
-- Skill entry: [`SKILL.md`](./SKILL.md)
-- Rules: [`references/rules/`](./references/rules/)
+- Codex/Cursor/Claude Skill entry: [`SKILL.md`](./SKILL.md)
+- Generic agent entry: [`AGENTS.md`](./AGENTS.md)
+- Claude Code project entry: [`CLAUDE.md`](./CLAUDE.md)
+- Claude slash command: [`.claude/commands/c2d.md`](./.claude/commands/c2d.md)
+- Cursor slash command: [`.cursor/commands/c2d.md`](./.cursor/commands/c2d.md)
+- Rules: [`rules/`](./rules/)
+- Docs: [`docs/`](./docs/)
+- Design explanation: [`docs/设计说明.md`](./docs/设计说明.md)
+- Copyable prompt: [`prompts/c2d主Prompt.md`](./prompts/c2d主Prompt.md)
 - Pre-submit hook: [`scripts/check_mastergo_html.py`](./scripts/check_mastergo_html.py)
 
-## Usage
+## Install
 
-Copy this folder into your Codex skills directory:
+Install to Codex, Cursor, and Claude Code:
 
 ```bash
-cp -R . ~/.codex/skills/input-method-app-design
+scripts/install_c2d.sh all
 ```
 
-Then invoke it with a prompt like:
+Install one platform only:
+
+```bash
+scripts/install_c2d.sh codex
+scripts/install_c2d.sh cursor
+scripts/install_c2d.sh claude
+```
+
+Install project-level Cursor/Claude slash commands:
+
+```bash
+scripts/install_slash_commands.sh /absolute/project both
+```
+
+## Invoke
+
+Use:
 
 ```text
+/c2d
 c2d
-```
-
-or:
-
-```text
 设计
+使用 c2d
 ```
 
-or slash-invoke `$input-method-app-design` and send it without extra text. The skill will start a guided intake for the target canvas, interaction screenshot, and component library.
-
-For a complete request, use:
-
-```text
-使用 input-method-app-design。
-基于这张交互截图，在这个 MasterGo 画布里生成输入法APP高保真流程设计稿：
-目标画布：<MasterGo 画布链接>
-组件库：https://mastergo.iflytek.com/goto/TOAnEBPS
-```
+If `/c2d` is invoked with no arguments, c2d starts guided intake for the target canvas, interaction screenshot, component library, and visual-insight output.
 
 ## What It Enforces
 
 - Read/OCR interaction screenshots before designing.
+- Summarize visual-insight output into `本次视觉生成概要` when provided.
 - Read bundled rules before generating.
 - Read the MasterGo component library before drawing.
 - Prefer existing component instances over custom layers.

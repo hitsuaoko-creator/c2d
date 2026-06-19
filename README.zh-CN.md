@@ -1,59 +1,81 @@
 # c2d
 
-`c2d` 是一个 Codex Skill，用于基于交互截图和 MasterGo 组件库生成、优化、检查输入法 APP 的移动端 UI 设计稿。
+`c2d` 是一个跨 Agent 的 Skill，用于基于交互截图、visual skill 产物、MasterGo 组件库和输入法 APP 设计规范，生成、优化、检查输入法 APP 的 MasterGo 高保真移动端 UI 设计稿。
 
-这个 Skill 已经内置了「输入法APP 设计规范引导」rules，会在生成设计稿前先读取交互截图并做 OCR/视觉解读，再读取组件库和规范，优先抽取相近组件，最后用 hook 检查生成的 MasterGo HTML。
+它不是简单照搬交互截图，而是先理解 visual 产物中的设计意图，再结合组件库和 rules 生成可维护的组件化设计稿。
 
 ## 目录说明
 
 - Skill 入口：[`SKILL.md`](./SKILL.md)
-- 规范 rules：[`references/rules/`](./references/rules/)
+- 通用 Agent 入口：[`AGENTS.md`](./AGENTS.md)
+- Claude Code 项目入口：[`CLAUDE.md`](./CLAUDE.md)
+- Claude Code 斜杠命令：[`./.claude/commands/c2d.md`](./.claude/commands/c2d.md)
+- Cursor 斜杠命令：[`./.cursor/commands/c2d.md`](./.cursor/commands/c2d.md)
+- 设计规则源：[`rules/`](./rules/)
+- 使用说明：[`docs/`](./docs/)
+- 设计说明：[`docs/设计说明.md`](./docs/设计说明.md)
+- 可复制 Prompt：[`prompts/c2d主Prompt.md`](./prompts/c2d主Prompt.md)
 - 提交前检查脚本：[`scripts/check_mastergo_html.py`](./scripts/check_mastergo_html.py)
 - rules 同步脚本：[`scripts/sync_rules_from_repo.py`](./scripts/sync_rules_from_repo.py)
 
 ## 安装
 
-将仓库复制到 Codex skills 目录：
+一次安装到 Codex、Cursor、Claude Code：
 
 ```bash
-cp -R . ~/.codex/skills/input-method-app-design
+scripts/install_c2d.sh all
+```
+
+只安装某个平台：
+
+```bash
+scripts/install_c2d.sh codex
+scripts/install_c2d.sh cursor
+scripts/install_c2d.sh claude
+```
+
+安装到某个项目的 Cursor / Claude Code 斜杠命令：
+
+```bash
+scripts/install_slash_commands.sh /absolute/project both
 ```
 
 ## 使用方式
 
-可以直接发送下面任意一种触发语进入引导：
+可以直接唤起：
 
 ```text
+/c2d
 c2d
-```
-
-```text
 设计
+使用 c2d
 ```
 
-也可以斜杠唤起 `$input-method-app-design` 后，不输入其他内容直接发送。Skill 会自动进入引导流程，补齐目标画布、交互截图和组件库。
+如果 `/c2d` 后不输入内容直接发送，Skill 会自动进入引导流程，补齐目标画布、交互截图、组件库和 visual 产物。
 
-推荐的完整请求如下：
+推荐完整输入：
 
 ```text
-使用 input-method-app-design。
-基于这张交互截图，在这个 MasterGo 画布里生成输入法APP高保真流程设计稿：
-目标画布：<MasterGo 画布链接>
-组件库：https://mastergo.iflytek.com/goto/TOAnEBPS
+/c2d
+
+目标画布：
+<MasterGo 画布链接>
+
+组件库：
+https://mastergo.iflytek.com/goto/TOAnEBPS
+
+交互截图：
+我已上传截图 / 截图路径是 <path>
+
+visual 产物：
+<粘贴 visual skill 输出；没有则写暂无>
 ```
-
-如果你不知道怎么写完整需求，也可以直接说：
-
-```text
-使用 input-method-app-design，告诉我该输入哪些信息。
-```
-
-Skill 会引导你补齐目标画布、组件库、交互截图、页面数量、点击路径和特殊约束。
 
 ## 强制规则
 
 - 生成前必须先读/OCR 交互截图。
-- 生成前必须读取内置 rules 和 MasterGo 组件库。
+- 如果提供 visual 产物，必须先总结为 `本次视觉生成概要`。
+- 生成前必须读取 `rules/` 和 MasterGo 组件库。
 - 样式或逻辑相近时，优先抽取并使用组件库组件。
 - 不要随意自创图层；临时 frame 只用于组件缺失的容器骨架。
 - 单个 `360 x 780` 设计稿是普通 Frame/画板，不是自动布局。
@@ -71,22 +93,6 @@ scripts/check_mastergo_html.py <html-file> --library <MasterGo组件库快照目
 ```
 
 有 `ERROR` 时不能提交到 MasterGo，需要先修复。
-
-## 同步 rules
-
-如果外部「输入法APP 设计规范引导」仓库有更新，可以运行：
-
-```bash
-scripts/sync_rules_from_repo.py
-```
-
-它会把本机默认路径 `/Users/chang/Documents/Playground/输入法APP 设计规范引导` 的规范同步到 `references/rules/`。
-
-也可以指定来源路径：
-
-```bash
-scripts/sync_rules_from_repo.py <输入法APP设计规范引导目录>
-```
 
 ## 许可证
 

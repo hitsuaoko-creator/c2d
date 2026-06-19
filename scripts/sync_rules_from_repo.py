@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync 输入法APP 设计规范引导 docs into this skill's references/rules."""
+"""Sync 输入法APP 设计规范引导 docs into this skill's rules directory."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ RULE_FILES = [
     ("文档/00-组件与变量清单.md", "00-组件与变量清单.md"),
     ("文档/01-组件关系图谱.md", "01-组件关系图谱.md"),
     ("文档/02-组件组合规则.md", "02-组件组合规则.md"),
-    ("文档/03-D2C调用准则.md", "03-D2C调用准则.md"),
+    ("文档/03-D2C调用准则.md", "03-c2d调用准则.md"),
     ("文档/04-变量与颜色规则.md", "04-变量与颜色规则.md"),
     ("文档/05-缺失与冲突处理.md", "05-缺失与冲突处理.md"),
     ("文档/06-画布结构与图层治理.md", "06-画布结构与图层治理.md"),
@@ -24,7 +24,7 @@ RULE_FILES = [
 def main() -> int:
     source = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_SOURCE
     skill_root = Path(__file__).resolve().parents[1]
-    target = skill_root / "references" / "rules"
+    target = skill_root / "rules"
     if not source.exists():
         print(f"ERROR: source repo not found: {source}")
         return 1
@@ -35,7 +35,12 @@ def main() -> int:
             print(f"ERROR: missing source file: {src}")
             return 1
         shutil.copy2(src, target / dst_name)
-        print(f"synced: {src_rel} -> references/rules/{dst_name}")
+        if dst_name == "README.md":
+            readme = target / dst_name
+            text = readme.read_text(encoding="utf-8")
+            text = text.replace("./文档/", "./")
+            readme.write_text(text, encoding="utf-8")
+        print(f"synced: {src_rel} -> rules/{dst_name}")
     print("done")
     return 0
 
