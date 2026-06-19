@@ -23,6 +23,20 @@ cp -R . ~/.codex/skills/input-method-app-design
 Then invoke it with a prompt like:
 
 ```text
+c2d
+```
+
+or:
+
+```text
+设计
+```
+
+or slash-invoke `$input-method-app-design` and send it without extra text. The skill will start a guided intake for the target canvas, interaction screenshot, and component library.
+
+For a complete request, use:
+
+```text
 使用 input-method-app-design。
 基于这张交互截图，在这个 MasterGo 画布里生成输入法APP高保真流程设计稿：
 目标画布：<MasterGo 画布链接>

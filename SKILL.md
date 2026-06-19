@@ -1,6 +1,6 @@
 ---
 name: input-method-app-design
-description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, or D2C/c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar, or when they ask how to phrase a request, need a prompt/template, mention the 输入法APP 设计规范引导 repository, or mention the MasterGo component library link https://mastergo.iflytek.com/goto/TOAnEBPS.
+description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, design, or D2C/c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar; when the user says only "设计", "c2d", "使用 c2d", "input-method-app-design", "$input-method-app-design", "输入法APP设计规范", or invokes this skill with no extra content; or when they ask how to phrase a request, need a prompt/template, mention the 输入法APP 设计规范引导 repository, or mention the MasterGo component library link https://mastergo.iflytek.com/goto/TOAnEBPS.
 ---
 
 # 输入法APP 设计规范
@@ -59,6 +59,15 @@ When the user asks "怎么用这个 skill", "我该输入什么", "帮我封装�
 - Hard constraints or known exceptions.
 
 If one of target canvas, screenshot, or component library access is missing, ask for it before generating.
+
+## Bare Trigger Behavior
+
+If the request is empty after slash-invoking this skill, or only says `设计`, `c2d`, `使用 c2d`, `input-method-app-design`, `$input-method-app-design`, or `输入法APP设计规范`, immediately start the guided intake instead of waiting for a full prompt:
+
+- Read `references/需求引导.md`.
+- Reply with the minimal template and ask only for the missing blockers.
+- Ask at most 3 questions, prioritizing target MasterGo canvas, uploaded interaction screenshot, and component library confirmation.
+- Do not generate UI until the required target canvas and screenshot are available.
 
 ## Dead Rules
 

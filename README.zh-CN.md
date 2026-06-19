@@ -21,7 +21,19 @@ cp -R . ~/.codex/skills/input-method-app-design
 
 ## 使用方式
 
-推荐这样发起请求：
+可以直接发送下面任意一种触发语进入引导：
+
+```text
+c2d
+```
+
+```text
+设计
+```
+
+也可以斜杠唤起 `$input-method-app-design` 后，不输入其他内容直接发送。Skill 会自动进入引导流程，补齐目标画布、交互截图和组件库。
+
+推荐的完整请求如下：
 
 ```text
 使用 input-method-app-design。
