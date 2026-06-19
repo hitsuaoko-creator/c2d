@@ -1,6 +1,6 @@
 ---
 name: input-method-app-design
-description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, or D2C a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar, or when they ask how to phrase a request, need a prompt/template, mention the 输入法APP 设计规范引导 repository, or mention the MasterGo component library link https://mastergo.iflytek.com/goto/TOAnEBPS.
+description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, or D2C/c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar, or when they ask how to phrase a request, need a prompt/template, mention the 输入法APP 设计规范引导 repository, or mention the MasterGo component library link https://mastergo.iflytek.com/goto/TOAnEBPS.
 ---
 
 # 输入法APP 设计规范

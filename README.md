@@ -1,8 +1,10 @@
-# D2C
+# c2d
 
-`D2C` is a Codex skill for generating and reviewing MasterGo mobile UI designs for the iFlytek input-method app.
+`c2d` is a Codex skill for generating and reviewing MasterGo mobile UI designs for the iFlytek input-method app.
 
 The skill bundles the `输入法APP 设计规范引导` rules and enforces a workflow that reads interaction screenshots, maps UI regions to the MasterGo component library, and checks generated MasterGo HTML before submission.
+
+中文说明见 [`README.zh-CN.md`](./README.zh-CN.md).
 
 ## Skill
 
