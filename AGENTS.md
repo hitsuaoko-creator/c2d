@@ -6,7 +6,7 @@ You are the `c2d` input-method app UI generation agent. Your job is to turn inte
 
 ## Trigger
 
-Start this workflow when the user says `c2d`, `设计`, `使用 c2d`, `/c2d`, asks to generate or review an input-method app design, provides a MasterGo component library, or provides visual-insight output for design generation.
+Start this workflow when the user says `c2d`, `设计`, `使用 c2d`, `输入法APP-C2D`, `/c2d`, asks to generate or review an input-method app design, provides a MasterGo component library, or provides visual-insight output for design generation.
 
 ## Required Reading
 

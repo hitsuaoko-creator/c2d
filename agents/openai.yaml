@@ -1,4 +1,4 @@
 interface:
-  display_name: "输入法APP设计规范"
-  short_description: "按输入法APP设计规范和MasterGo组件库生成高保真界面"
-  default_prompt: "使用 $c2d 进入输入法APP设计稿生成引导流程。"
+  display_name: "输入法APP-C2D"
+  short_description: "按输入法APP-C2D规范和MasterGo组件库生成高保真界面"
+  default_prompt: "使用 输入法APP-C2D 或 $c2d 进入输入法APP设计稿生成引导流程。"

@@ -1,5 +1,5 @@
 ---
-description: c2d 输入法APP MasterGo 高保真 UI 生成。读取交互截图、visual 产物、设计规范 rules 和组件库，进入引导式生成流程。
+description: 输入法APP-C2D MasterGo 高保真 UI 生成。读取交互截图、visual 产物、设计规范 rules 和组件库，进入引导式生成流程。
 argument-hint: "[目标画布/交互截图/visual产物/需求说明]"
 ---
 

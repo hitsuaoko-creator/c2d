@@ -1,9 +1,9 @@
 ---
 name: c2d
-description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, visual-insight output summarization, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, design, or c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar; when the user says only "设计", "c2d", "使用 c2d", "$c2d", "/c2d", "输入法APP设计规范", or invokes this skill with no extra content; when they provide/mention visual skill output, visual-insight output, MasterGo component library link https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578, or the 输入法APP 设计规范引导 repository. Backward-compatible aliases include "input-method-app-design" and "$input-method-app-design".
+description: Generate or review MasterGo mobile UI designs for the iFlytek input-method app using guided requirement intake, visual-insight output summarization, the dedicated design specification, interaction screenshots, OCR/visual interpretation, and MasterGo component library. Use when the user asks to create, draw, optimize, audit, design, or c2d a design稿/界面/流程图 for 输入法APP, 皮肤制作, 键盘, 表情, 字体, 素材, 首页, tabbar; when the user says only "设计", "c2d", "使用 c2d", "$c2d", "/c2d", "输入法APP设计规范", "输入法APP-C2D", or invokes this skill with no extra content; when they provide/mention visual skill output, visual-insight output, MasterGo component library link https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578, or the 输入法APP 设计规范引导 repository. Backward-compatible aliases include "input-method-app-design" and "$input-method-app-design".
 ---
 
-# 输入法APP 设计规范
+# 输入法APP-C2D
 
 This skill is the trigger and execution workflow for the bundled `输入法APP 设计规范引导` rules. The canonical rules live inside this skill at `rules/`. The default component source is the MasterGo design elements and component library at `https://mastergo.iflytek.com/file/196518374727340?file=196518374727340&page_id=1%3A6578`.
 
@@ -65,7 +65,7 @@ If one of target canvas, screenshot, or component library access is missing, ask
 
 ## Bare Trigger Behavior
 
-If the request is empty after slash-invoking this skill, or only says `设计`, `c2d`, `使用 c2d`, `$c2d`, `/c2d`, `输入法APP设计规范`, or the backward-compatible alias `input-method-app-design`, immediately start the guided intake instead of waiting for a full prompt:
+If the request is empty after slash-invoking this skill, or only says `设计`, `c2d`, `使用 c2d`, `输入法APP-C2D`, `$c2d`, `/c2d`, `输入法APP设计规范`, or the backward-compatible alias `input-method-app-design`, immediately start the guided intake instead of waiting for a full prompt:
 
 - Read `rules/01-需求引导.md`.
 - Reply with the minimal template and ask only for the missing blockers.

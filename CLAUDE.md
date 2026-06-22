@@ -2,7 +2,7 @@
 
 ## Usage
 
-When the user invokes `/c2d`, says `c2d`, says `设计`, or asks for an input-method app MasterGo UI design, run the c2d workflow immediately.
+When the user invokes `/c2d`, says `c2d`, says `输入法APP-C2D`, says `设计`, or asks for an input-method app MasterGo UI design, run the c2d workflow immediately.
 
 ## Required Reading
 
